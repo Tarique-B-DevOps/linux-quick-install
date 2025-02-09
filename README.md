@@ -41,7 +41,7 @@ chmod +x *.sh
 ```
 3. **Run a script to install a tool**. Example:  
 ```bash
-./install_awscli.sh
+./awscli.sh
 ```   
 
 ## Notes
