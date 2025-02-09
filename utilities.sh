@@ -10,17 +10,11 @@ check_utility() {
   fi
 }
 
-# Function to install utilities
 install_utilities() {
   for utility in "${required_utilities[@]}"; do
     if ! check_utility "$utility"; then
-      read -p "$utility is not installed. Do you want to install it? (y/n): " choice
-      if [[ "$choice" == "y" || "$choice" == "Y" ]]; then
-        echo "Installing $utility..."
-        sudo apt-get install -y "$utility"
-      else
-        echo "$utility installation skipped."
-      fi
+      echo "$utility is not installed. Installing..."
+      sudo apt-get install -y "$utility"
     else
       echo "$utility is already installed."
     fi
