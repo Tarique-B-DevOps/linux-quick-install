@@ -9,6 +9,12 @@ check_utility() {
     else
       return 0
     fi
+  elif [ "$1" == "build-essential" ]; then
+    if ! make --version &> /dev/null; then
+      return 1
+    else
+      return 0
+    fi
   else
     if ! command -v "$1" &> /dev/null; then
       return 1
