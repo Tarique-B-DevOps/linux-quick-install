@@ -26,5 +26,4 @@ install_utilities() {
     fi
   done
 }
-s
 install_utilities
