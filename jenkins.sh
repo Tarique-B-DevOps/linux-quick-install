@@ -20,8 +20,8 @@ check_jenkins() {
 
 install_java() {
   echo "Java is not installed. Installing Java now..."
-  sudo apt-get update
-  sudo apt-get install default-jdk default-jre -y
+  sudo apt update
+  sudo apt install openjdk-17-jdk openjdk-17-jre -y
   echo "Java installation completed."
 }
 
