@@ -3,10 +3,18 @@
 required_utilities=("git" "wget" "curl" "net-tools" "build-essential" "zip" "unzip")
 
 check_utility() {
-  if ! command -v "$1" &> /dev/null; then
-    return 1
+  if [ "$1" == "net-tools" ]; then
+    if ! command -v netstat &> /dev/null; then
+      return 1
+    else
+      return 0
+    fi
   else
-    return 0
+    if ! command -v "$1" &> /dev/null; then
+      return 1
+    else
+      return 0
+    fi
   fi
 }
 
