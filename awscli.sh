@@ -3,8 +3,8 @@
 check_unzip() {
   if ! command -v unzip &> /dev/null; then
     echo "Unzip is not installed. Installing now..."
-    apt-get update
-    apt-get install unzip -y
+    sudo apt-get update
+    sudo apt-get install unzip -y
   fi
 }
 
