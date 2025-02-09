@@ -2,7 +2,7 @@
 
 check_minikube() {
   if command -v minikube &> /dev/null; then
-    echo "minikube is already installed. Version: $(minikube version)"
+    echo "minikube is already installed. Version: $(minikube version | grep 'minikube version')"
     return 0
   else
     return 1
