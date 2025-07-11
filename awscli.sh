@@ -25,6 +25,34 @@ install_awscli() {
   echo "AWS CLI installation completed."
 }
 
+check_ssm_plugin() {
+  if command -v session-manager-plugin &> /dev/null; then
+    echo "Session Manager Plugin is already installed. Version: $(session-manager-plugin)"
+    return 0
+  else
+    return 1
+  fi
+}
+
+install_ssm_plugin() {
+  echo "Installing AWS Session Manager Plugin..."
+  curl "https://s3.amazonaws.com/session-manager-downloads/plugin/latest/ubuntu_64bit/session-manager-plugin.deb" -o "session-manager-plugin.deb"
+  sudo dpkg -i session-manager-plugin.deb
+
+  # Verify installation
+  if command -v session-manager-plugin &> /dev/null; then
+    echo "Session Manager Plugin installed successfully. Version: $(session-manager-plugin)"
+  else
+    echo "Session Manager Plugin installation failed."
+  fi
+}
+
+cleanup() {
+  echo "Cleaning up installation files..."
+  rm -rf awscliv2.zip aws session-manager-plugin.deb
+  echo "Cleanup completed."
+}
+
 check_unzip
 
 if ! check_awscli; then
@@ -32,3 +60,12 @@ if ! check_awscli; then
 else
   echo "No action needed. AWS CLI is already installed."
 fi
+
+if ! check_ssm_plugin; then
+  install_ssm_plugin
+else
+  echo "No action needed. Session Manager Plugin is already installed."
+fi
+
+cleanup
+
