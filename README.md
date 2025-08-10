@@ -18,12 +18,12 @@ These scripts have been tested on:
 
 If you don't want to manually download and execute the script, you can directly execute it using the following command:
 ```bash
-curl -sSL https://raw.githubusercontent.com/Tarique-B-DevOps/bash-scripts-collection/main/<script_name>.sh | bash
+curl -sSL https://raw.githubusercontent.com/Tarique-B-DevOps/linux-quick-install/main/<script_name>.sh | bash
 ```
 
 **Example**: To install AWS CLI directly:  
 ```bash
-curl -sSL https://raw.githubusercontent.com/Tarique-B-DevOps/bash-scripts-collection/main/awscli.sh | bash
+curl -sSL https://raw.githubusercontent.com/Tarique-B-DevOps/linux-quick-install/main/awscli.sh | bash
 ```
 
 ### Clone and Run
@@ -32,7 +32,7 @@ Alternatively, you can clone the repository and run the scripts locally:
 
 1. **Clone the repository**:
 ```bash
-git clone https://github.com/Tarique-B-DevOps/bash-scripts-collection.git
+git clone https://github.com/Tarique-B-DevOps/linux-quick-install.git
 ```
 
 2. **Make the scripts executable**:  
